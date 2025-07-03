@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+
+    android:gravity="center_horizontal"
+
+    android:padding="16dp" >
+
+
+    <ImageView
+
+        android:id="@+id/appLogoSignUp"
+
+        android:layout_width="157dp"
+
+        android:layout_height="151dp"
+
+        android:layout_marginTop="50dp"
+
+        android:contentDescription="Healing Yuk Logo"
+
+        android:src="@drawable/logo" />
+
+
+
+    <TextView
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:text="Sign Up"
+
+        android:textSize="24sp"
+
+        android:textStyle="bold"
+
+        android:layout_marginTop="32dp"/>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="24dp"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:id="@+id/etNameSignUp"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+
+            android:hint="Name"
+
+            android:inputType="textPersonName"
+
+            android:text="enter your name" /> </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="16dp"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:id="@+id/etEmailSignUp"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+
+            android:hint="Email"
+
+            android:inputType="textEmailAddress"
+
+            android:text="enter your email" /> </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="16dp"
+
+        app:passwordToggleEnabled="true"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:id="@+id/etPasswordSignUp"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+
+            android:hint="Password"
+
+            android:inputType="textPassword"
+
+            android:text="enter a password"/> </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="16dp"
+
+        app:passwordToggleEnabled="true"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:id="@+id/etRepeatPasswordSignUp"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+
+            android:hint="Repeat Password"
+
+            android:inputType="textPassword"
+
+            android:text="enter a password" /> </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <Button
+
+        android:id="@+id/btnSignUpSubmit"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:text="Submit"
+
+        android:layout_marginTop="32dp"
+
+        android:backgroundTint="@color/black" />
+
+
+
+</LinearLayout>
