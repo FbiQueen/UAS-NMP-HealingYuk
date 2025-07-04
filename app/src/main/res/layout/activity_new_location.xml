@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
             android:hint="Location Name"
             android:inputType="textCapWords"
-            android:text="enter location name" />
+            android:text="" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -60,9 +60,9 @@
                 android:id="@+id/etImageUrl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-            android:hint="URL"
+            android:hint="URL Image"
             android:inputType="textUri"
-            android:text="enter location photo URL" />
+            android:text="" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -78,7 +78,7 @@
             android:hint="Short Description"
             android:inputType="textMultiLine"
             android:minLines="2"
-            android:text="enter short description about the location" />
+            android:text="" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -94,7 +94,7 @@
             android:hint="Description"
             android:inputType="textMultiLine"
             android:minLines="4"
-            android:text="enter complete description about the loca" />
+            android:text="" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
