@@ -73,7 +73,7 @@
 
             android:inputType="textPersonName"
 
-            android:text="enter your name" /> </com.google.android.material.textfield.TextInputLayout>
+            android:text="" /> </com.google.android.material.textfield.TextInputLayout>
 
 
 
@@ -101,7 +101,7 @@
 
             android:inputType="textEmailAddress"
 
-            android:text="enter your email" /> </com.google.android.material.textfield.TextInputLayout>
+            android:text="" /> </com.google.android.material.textfield.TextInputLayout>
 
 
 
@@ -131,7 +131,7 @@
 
             android:inputType="textPassword"
 
-            android:text="enter a password"/> </com.google.android.material.textfield.TextInputLayout>
+            android:text=""/> </com.google.android.material.textfield.TextInputLayout>
 
 
 
@@ -161,7 +161,7 @@
 
             android:inputType="textPassword"
 
-            android:text="enter a password" /> </com.google.android.material.textfield.TextInputLayout>
+            android:text="" /> </com.google.android.material.textfield.TextInputLayout>
 
 
 

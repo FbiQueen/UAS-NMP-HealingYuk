@@ -1,32 +1,62 @@
-package com.example.healingyuk.fragments // Sesuaikan dengan package Anda
+package com.example.healingyuk
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.example.healingyuk.R
+import com.example.healingyuk.SessionManager
 import com.example.healingyuk.databinding.FragmentProfileBinding
+import org.json.JSONObject
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
-    private var _binding: FragmentProfileBinding? = null
-    private val binding get() = _binding!!
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentProfileBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    private lateinit var binding: FragmentProfileBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Data user akan dimuat dari database dan ditampilkan di sini
-        // Untuk sementara, kita menggunakan teks statis seperti di layout
+        binding = FragmentProfileBinding.bind(view)
+
+        val user = SessionManager.getUser(requireContext())
+        if (user != null) {
+            binding.tvNameProfile.text = user.name
+            binding.tvEmailProfile.text = user.email
+            binding.tvJoinedSinceProfile.text = user.createdAt
+
+            fetchFavoriteCount(user.id)
+        } else {
+            Toast.makeText(requireContext(), "User tidak ditemukan", Toast.LENGTH_SHORT).show()
+        }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun fetchFavoriteCount(userId: Int) {
+        val url = "http://10.0.2.2/healing/count_favorite.php"
+
+        val request = object : StringRequest(Method.POST, url, { response ->
+            val json = JSONObject(response)
+            if (json.getBoolean("success")) {
+                val count = json.getInt("count")
+                binding.tvTotalFavoritesProfile.text = "$count lokasi"
+            } else {
+                binding.tvTotalFavoritesProfile.text = "0 lokasi"
+            }
+        }, {
+            Toast.makeText(requireContext(), "Gagal memuat jumlah favorit", Toast.LENGTH_SHORT).show()
+        }) {
+            override fun getParams(): MutableMap<String, String> {
+                return mutableMapOf("user_id" to userId.toString())
+            }
+        }
+
+        Volley.newRequestQueue(requireContext()).add(request)
+    }
+    override fun onResume() {
+        super.onResume()
+        val user = SessionManager.getUser(requireContext())
+        if (user != null) {
+            fetchFavoriteCount(user.id)
+        }
     }
 }
